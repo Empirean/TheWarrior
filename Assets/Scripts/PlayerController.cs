@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
             RotatePlayer();
 
             //  checks space key, checks if grounded, checks if not jumping (this one probably needs revision)
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded() && !_isJumping)
+            if (Input.GetKey(KeyCode.Space) && isGrounded() && !_isJumping)
             {
                 // flags jumping and not a way to determine if the object is jumping
                 _isJumping = true;
