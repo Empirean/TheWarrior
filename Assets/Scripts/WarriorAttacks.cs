@@ -8,6 +8,7 @@ public class WarriorAttacks : MonoBehaviour
     [Range(3,5)]
     public int maxAttackCount = 3;
     public float attackReset = 2f;
+    public GameObject enemy;
 
     private float reset;
     private float attackRate = 1.0f;
@@ -15,7 +16,6 @@ public class WarriorAttacks : MonoBehaviour
     private int attackCount = 0;
     private List<GameObject> damageGroup;
     private Vector3 _attackPoint;
-    private int count;
 
     private void Update ()
     {
@@ -33,16 +33,18 @@ public class WarriorAttacks : MonoBehaviour
 
             damageGroup = GameObject.FindGameObjectsWithTag("Enemy").ToList();
             _attackPoint = GetComponentInChildren<Transform>().Find("AttackPoint").transform.position;
-            count = 0;
+
             foreach (var item in damageGroup)
             {
                 if (Vector3.Distance(item.transform.position,_attackPoint) < 3)
                 {
-                    count++;
+                    Transform pickedTransform = item.GetComponent<Transform>();
+                    Rigidbody pickedBody = item.GetComponent<Rigidbody>();
+                    Vector3 direction = (pickedTransform.position - transform.position).normalized;
+                    pickedBody.velocity = direction * 10;
                 }
             }
 
-            Debug.Log(count.ToString());
         }
 
         if (attackCount >= maxAttackCount)
@@ -51,10 +53,5 @@ public class WarriorAttacks : MonoBehaviour
         }
         
 	}
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
 
 }
