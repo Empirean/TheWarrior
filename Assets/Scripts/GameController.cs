@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour {
     }
 
     #region PublicFunctions
+
     /// <summary>
     /// Returns the current mouse state value.
     /// </summary>
@@ -55,9 +56,15 @@ public class GameController : MonoBehaviour {
     /// <param name="enabled">true to show and lock mouse, false if the opposite</param>
     public void LockCUrsor(bool enabled)
     {
+
+        //  is mouse visible
         Cursor.visible = enabled;
+
+        //  locks the mouse in the center of the screen
         Cursor.lockState = enabled ? CursorLockMode.None : CursorLockMode.Locked;
+
     }
+
     #endregion
 }
 

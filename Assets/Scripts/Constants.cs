@@ -22,4 +22,10 @@ public static class Constants
         public const float MIN = 1f;
         public const float MAX = 100f;
     }
+
+    public struct AttackCycle
+    {
+        public const int MIN = 1;
+        public const int MAX = 3;
+    }
 }
