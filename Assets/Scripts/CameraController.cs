@@ -60,7 +60,7 @@ public class CameraController : MonoBehaviour
         _gameController = FindObjectOfType<GameController>();
 
         // get mouse state
-        _mouseState = _gameController.getMouseState();
+        _mouseState = _gameController.GetMouseState();
 
     }
 
@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
     {
 
         //  checkm mouse state
-        if (!_gameController.getMouseState())
+        if (!_gameController.GetMouseState())
         { 
             //  calculates camera elevation based on the mouse Y
             _cameraElevation += Input.GetAxis("Mouse Y") * mouseYSensitivity * Time.deltaTime;

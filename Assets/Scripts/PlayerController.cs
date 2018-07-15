@@ -53,14 +53,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //  check mouse state
-        if (!_gameController.getMouseState())
+        if (!_gameController.GetMouseState())
         {
 
             // apply rotation to player
             RotatePlayer();
 
             //  checks space key, checks if grounded, checks if not jumping (this one probably needs revision)
-            if (Input.GetKey(KeyCode.Space) && isGrounded() && !_isJumping)
+            if (Input.GetKey(KeyCode.Space) && IsGrounded() && !_isJumping)
             {
                 // flags jumping and not a way to determine if the object is jumping
                 _isJumping = true;
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
     ///  checks if the player object's transform is grounded
     /// </summary>
     /// <returns>boolean</returns>
-    public bool isGrounded()
+    public bool IsGrounded()
     {
         RaycastHit _ray;
         Physics.Raycast(transform.position, -transform.up, out _ray);

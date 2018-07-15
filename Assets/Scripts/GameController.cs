@@ -24,10 +24,10 @@ public class GameController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             // if the mouse state is true set it to false vice versa
-            changeState();
+            ChangeState();
 
             // apply new mouse state
-            LockCUrsor(getMouseState());
+            LockCUrsor(GetMouseState());
         }
     }
 
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
     /// Returns the current mouse state value.
     /// </summary>
     /// <returns>boolean</returns>
-    public bool getMouseState()
+    public bool GetMouseState()
     {
         return _mouseState;
     }
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
     /// <summary>
     /// Public function that negates the current mouse state
     /// </summary>
-    public void changeState()
+    public void ChangeState()
     {
         _mouseState = !_mouseState;
     }

@@ -47,16 +47,17 @@ public class WarriorAttacks : MonoBehaviour
 
     private void Update ()
     {
+        
         // checks if the attack animation needs to be reset to primary strike
         // this will be useful when we are finally going to do the animation
-        if (isReset())
+        if (!IsReset())
         {
             // this is attack state
             _currentAttack = (int) _attackState.initialAttack;
         }
         
         // checks if mouse is being clicks and the attack cooldown is down
-		if (Input.GetKey(KeyCode.Mouse0) && !isCooldown())
+		if (Input.GetKey(KeyCode.Mouse0) && !IsCooldown())
         {
             Vector3 _attackPoint;
             // get the position of the attack point
@@ -85,7 +86,7 @@ public class WarriorAttacks : MonoBehaviour
     #region PrivateFunctions
 
     // check if it's allowed to attack
-    private bool isCooldown()
+    private bool IsCooldown()
     {
        
         // if the time exceeds the attack cooldown it's allowed to attack
@@ -106,7 +107,7 @@ public class WarriorAttacks : MonoBehaviour
 
 
     // checks if the animation needs to be reset to the first animation
-    private bool isReset()
+    private bool IsReset()
     {
         
         // if the player is not attack for a while the attack needs to reset
@@ -128,7 +129,7 @@ public class WarriorAttacks : MonoBehaviour
     /// </summary>
     /// <param name="_ObjectBody">object to be knockedbacky</param>
     /// <param name="_knockBackForce">knockback force</param>
-    private void KnockBack(Rigidbody _ObjectBody, float _knockBackForce)
+    private void Knockback(Rigidbody _ObjectBody, float _knockBackForce)
     {
         Vector3 direction = (_ObjectBody.position - transform.position).normalized;
         _ObjectBody.velocity = direction * _knockBackForce;
@@ -141,6 +142,7 @@ public class WarriorAttacks : MonoBehaviour
     /// <param name="_range">distance from the enemy position to the attack point</param>
     private void Attack(Vector3 _attackPoint, float _range)
     {
+        Debug.Log(_currentAttack.ToString());
         // this is a counter that determines what attack is executed
         _currentAttack++;
 
@@ -162,14 +164,7 @@ public class WarriorAttacks : MonoBehaviour
                 _pickedBody = _objects.GetComponent<Rigidbody>();
 
                 //  knockback the object
-                KnockBack(_pickedBody, knockbackDistance);
-            }
-            else
-            {
-
-                // remove the object from the group
-                _damageGroup.Remove(_objects);
-
+                Knockback(_pickedBody, knockbackDistance);
             }
         }
 
