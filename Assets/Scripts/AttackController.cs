@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class WarriorAttacks : MonoBehaviour
+public class AttackController : MonoBehaviour
 {
 
     #region PublicVariables
@@ -142,7 +142,7 @@ public class WarriorAttacks : MonoBehaviour
     /// <param name="_range">distance from the enemy position to the attack point</param>
     private void Attack(Vector3 _attackPoint, float _range)
     {
-        Debug.Log(_currentAttack.ToString());
+
         // this is a counter that determines what attack is executed
         _currentAttack++;
 
@@ -151,17 +151,21 @@ public class WarriorAttacks : MonoBehaviour
 
         // holder variables
         Rigidbody _pickedBody;
+        AttributesController _attributesController = GetComponent<AttributesController>();
 
         // pick all the enemies
-        foreach (GameObject _objects in _damageGroup)
+        foreach (GameObject _object in _damageGroup)
         {
 
             // if an enemy is within range
-            if (Vector3.Distance(_objects.transform.position, _attackPoint) <= _range)
+            if (Vector3.Distance(_object.transform.position, _attackPoint) <= _range)
             {
 
+                // damage unit
+                _attributesController.Damage(_object, _attributesController.damage);
+
                 //  gets the rigidbody of the object
-                _pickedBody = _objects.GetComponent<Rigidbody>();
+                _pickedBody = _object.GetComponent<Rigidbody>();
 
                 //  knockback the object
                 Knockback(_pickedBody, knockbackDistance);

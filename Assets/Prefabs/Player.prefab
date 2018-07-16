@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33829248279926868}
   - component: {fileID: 65277932543334696}
   - component: {fileID: 23608154810267540}
-  - component: {fileID: 114796311681113312}
   - component: {fileID: 54330822215912034}
+  - component: {fileID: 114796311681113312}
   - component: {fileID: 114677799707219450}
-  - component: {fileID: 114020902355931362}
+  - component: {fileID: 114811949949452298}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -142,17 +142,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114020902355931362
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1526991635214802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de502224739c6ae44b5486ef78f2e278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114677799707219450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +172,23 @@ MonoBehaviour:
   mouseSensitivityX: 50
   jumpHeight: 8
   playerSpeed: 10
+--- !u!114 &114811949949452298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526991635214802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2340fb28e7751d9419498f9e285f15d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  armor: 0
+  criticalChance: 0
+  criticalDamage: 0
+  damage: 10
 --- !u!135 &135810477342041216
 SphereCollider:
   m_ObjectHideFlags: 1
