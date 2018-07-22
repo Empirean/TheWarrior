@@ -37,9 +37,6 @@ public class CameraController : MonoBehaviour
     //  Private Variables
     //************************************************************************************
 
-    //  local variable for handling mouse state which shows/hides and locks/unlocks the mouse
-    private bool _mouseState;
-
     //  local variable for handling camera Y offset
     private float _cameraElevation;
 
@@ -58,9 +55,6 @@ public class CameraController : MonoBehaviour
 
         // get the game controller
         _gameController = FindObjectOfType<GameController>();
-
-        // get mouse state
-        _mouseState = _gameController.GetMouseState();
 
     }
 
