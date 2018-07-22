@@ -46,6 +46,7 @@ public class AttributesController : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            
             Destroy(gameObject);
         }
     }

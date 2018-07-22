@@ -47,7 +47,7 @@ public class AttackController : MonoBehaviour
 
     private void Update ()
     {
-        
+
         // checks if the attack animation needs to be reset to primary strike
         // this will be useful when we are finally going to do the animation
         if (!IsReset())
@@ -82,6 +82,13 @@ public class AttackController : MonoBehaviour
         }
 
 	}
+
+    private void OnDrawGizmosSelected()
+    {
+        // draw the attack detection radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(GetComponentInChildren<Transform>().Find("AttackPoint").transform.position, attackRange[_currentAttack]);
+    }
 
     #region PrivateFunctions
 
@@ -142,6 +149,7 @@ public class AttackController : MonoBehaviour
     /// <param name="_range">distance from the enemy position to the attack point</param>
     private void Attack(Vector3 _attackPoint, float _range)
     {
+        
 
         // this is a counter that determines what attack is executed
         _currentAttack++;
