@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+
         //  check mouse state
         if (!_gameController.GetMouseState())
         {
@@ -64,6 +65,9 @@ public class PlayerController : MonoBehaviour
             {
                 // flags jumping and not a way to determine if the object is jumping
                 _isJumping = true;
+
+                // allows player to jump
+                JumpPlayer();
             }
         }
 
@@ -74,9 +78,6 @@ public class PlayerController : MonoBehaviour
 
         // allows player to move
         MovePlayer();
-
-        // allows player to jump
-        JumpPlayer();
 
     }
 
